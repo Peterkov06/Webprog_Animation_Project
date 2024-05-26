@@ -94,16 +94,29 @@ function genBtns()
   }
 }
 
+let litOnes = [];
 function LitRandom()
 {
-  let numOfBtns = getRandom(10, Math.round(allBtnNum / 3));
-  let litOnes = [];
+  let numOfBtns = getRandom(10, Math.round(allBtnNum / 2));
   for (let index = 0; index < numOfBtns; index++) {
     let indexNum = getRandom(0, allBtnNum);
-    while(litOnes.includes(indexNum))
+    if(litOnes.includes(indexNum))
     {
-      indexNum = getRandom(0, allBtnNum);
+      let id = `panelBtnId${indexNum}`;
+      let chosen = document.getElementById(`${id}`);
+      if (chosen.classList.contains("panelCenterBtn"))
+        {
+          chosen.src = `SVGs/NormalBtnCenter.svg`;
+        }
+        else
+        {
+          chosen.src = `SVGs/Rectangle.svg`;
+        }
+        let indexer = litOnes.findIndex(function (x) { return x === indexNum;});
+        litOnes = litOnes.slice(indexer, 1)
+        break;
     }
+    litOnes.push(indexNum);
     let id = `panelBtnId${indexNum}`;
     let chosen = document.getElementById(`${id}`);
     let colorStrg = "";
@@ -128,5 +141,30 @@ function LitRandom()
   }
 }
 
+function PullLever()
+{
+  let lever = document.getElementsByClassName("lever")[0];
+  if (lever.classList.contains("pullLever"))
+  {
+    lever.classList.add("pullLeverBack");
+    lever.classList.remove("pullLever");
+  }
+  else
+  {
+    lever.classList.remove("pullLeverBack");
+    lever.classList.add("pullLever");
+    setTimeout(Fire, 1000)
+  }
+}
+
+function Fire()
+{
+  document.getElementsByClassName("laser")[0].classList.add("fireOrder");
+  setTimeout(function () {document.getElementsByClassName("laser")[0].classList.remove("fireOrder");}, 2000)
+}
+
+document.getElementsByClassName("lever")[0].addEventListener("click", PullLever)
+
 genBtns();
 LitRandom();
+setInterval(LitRandom, 2000)

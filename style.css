@@ -6,6 +6,13 @@
   width: 100%;
 }
 
+.laser
+{
+  width: 8%;
+  height: 0%;
+  left: 46%;
+}
+
 body
 {
   background-color: #515151;
@@ -48,4 +55,53 @@ body
 {
   height: 3%;
   width: 3%;
+}
+
+.pullLever
+{
+  animation: leverPull 0.5s ease-in 1 forwards;
+}
+
+.pullLeverBack
+{
+  animation-name: leverPullBack;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+.fireOrder
+{
+  animation: fireLaser 1s ease 1s 1;
+}
+
+
+@keyframes leverPull {
+  100% {
+    transform: translate(0%, -25%);
+  }
+}
+
+@keyframes leverPullBack {
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes fireLaser {
+  0%
+  {
+
+  }
+  85%
+  {
+    height: 30%;
+    width: 10%;
+  }
+  100%
+  {
+    height: 30%;
+    width: 10%;
+  }
 }
