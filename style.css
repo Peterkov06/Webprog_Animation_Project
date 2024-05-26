@@ -35,6 +35,17 @@ body
 
 .panelBtn
 {
-  height: 4%;
-  width: 4%;
+  height: 3.5%;
+  width: 3.5%;
+}
+
+.panelBtnRight
+{
+  transform: scaleX(-1);
+}
+
+.panelCenterBtn
+{
+  height: 3%;
+  width: 3%;
 }
