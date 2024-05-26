@@ -1,0 +1,40 @@
+.svg-layer
+{
+  position: absolute; /* Position each SVG absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+body
+{
+  background-color: #515151;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.window
+{
+  top: 10%;
+  height: 70%;
+}
+
+.panelsBg
+{
+  height: 98%;
+}
+
+.lever-base, .lever
+{
+  position: absolute;
+  top: 85%;
+  left: 44.5%;
+  height: 12%;
+  width: 12%;
+}
+
+.panelBtn
+{
+  height: 4%;
+  width: 4%;
+}
