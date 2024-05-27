@@ -167,4 +167,4 @@ document.getElementsByClassName("lever")[0].addEventListener("click", PullLever)
 
 genBtns();
 LitRandom();
-setInterval(LitRandom, 2000)
+setInterval(LitRandom, 1500)

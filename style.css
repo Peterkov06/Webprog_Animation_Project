@@ -67,13 +67,23 @@ body
   animation-name: leverPullBack;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
 }
 
 .fireOrder
 {
   animation: fireLaser 1s ease 1s 1;
+}
+
+.planetIMG
+{
+  aspect-ratio: 1/1;
+  width: 30%;
+  max-height: 60%;
+  left: 36%;
+  top: 12%;
 }
 
 
@@ -84,6 +94,10 @@ body
 }
 
 @keyframes leverPullBack {
+  0%
+  {
+    transform: translate(0%, -25%);
+  }
   100% {
     transform: translate(0%, 0%);
   }
