@@ -147,6 +147,7 @@ function PullLever()
   if (lever.classList.contains("pullLever"))
   {
     lever.classList.add("pullLeverBack");
+    GetNewPlanet();
     lever.classList.remove("pullLever");
   }
   else
@@ -160,11 +161,21 @@ function PullLever()
 function Fire()
 {
   document.getElementsByClassName("laser")[0].classList.add("fireOrder");
+  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.add("explode"); document.getElementsByClassName("planetIMG")[0].classList.add("explodePlanet");}, 1500);
   setTimeout(function () {document.getElementsByClassName("laser")[0].classList.remove("fireOrder");}, 2000)
+  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.remove("explode");}, 1950);
+}
+
+function GetNewPlanet()
+{
+  let ind = getRandom(1,4);
+  document.getElementsByClassName("planetIMG")[0].src = `SVGs/Planets/planet (${ind}).svg`
+  document.getElementsByClassName("planetIMG")[0].classList.remove("explodePlanet");
 }
 
 document.getElementsByClassName("lever")[0].addEventListener("click", PullLever)
 
 genBtns();
+GetNewPlanet();
 LitRandom();
-setInterval(LitRandom, 1500)
+setInterval(LitRandom, 1500);
