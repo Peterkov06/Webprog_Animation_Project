@@ -106,12 +106,12 @@ body
 .explode
 {
   visibility: visible;
-  animation: explode 0.4s ease-out 1 forwards;
+  animation: explode 0.3s ease-out 1 forwards;
 }
 
 .explodePlanet
 {
-  animation: planetExplode 0.3s ease-in 1 forwards;
+  animation: planetExplode 0.2s ease-in 1 forwards;
 }
 
 

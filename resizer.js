@@ -97,48 +97,59 @@ function genBtns()
 let litOnes = [];
 function LitRandom()
 {
+  let plannedOnes = [];
   let numOfBtns = getRandom(10, Math.round(allBtnNum / 2));
   for (let index = 0; index < numOfBtns; index++) {
-    let indexNum = getRandom(0, allBtnNum);
-    if(litOnes.includes(indexNum))
+    let indexNum = getRandom(0, allBtnNum - 1);
+    while(plannedOnes.includes(indexNum))
     {
-      let id = `panelBtnId${indexNum}`;
+      indexNum = getRandom(0, allBtnNum - 1);
+    }
+    plannedOnes.push(indexNum);
+  }
+  for (let toCahnge = 0; toCahnge < plannedOnes.length; toCahnge++) {
+    let currInd = plannedOnes[toCahnge];
+    if(litOnes.includes(currInd))
+    {
+      let id = `panelBtnId${currInd}`;
       let chosen = document.getElementById(`${id}`);
       if (chosen.classList.contains("panelCenterBtn"))
-        {
-          chosen.src = `SVGs/NormalBtnCenter.svg`;
-        }
-        else
-        {
-          chosen.src = `SVGs/Rectangle.svg`;
-        }
-        let indexer = litOnes.findIndex(function (x) { return x === indexNum;});
-        litOnes = litOnes.slice(indexer, 1)
-        break;
-    }
-    litOnes.push(indexNum);
-    let id = `panelBtnId${indexNum}`;
-    let chosen = document.getElementById(`${id}`);
-    let colorStrg = "";
-    let color = getRandom(0,1)
-    switch (color) {
-      case 0:
-        colorStrg = "Red";
-        break;
-    
-      default:
-        colorStrg = "Green";
-        break;
-    }
-    if (chosen.classList.contains("panelCenterBtn"))
-    {
-      chosen.src = `SVGs/NormalBtnCenter${colorStrg}.svg`;
+      {
+        chosen.src = `SVGs/NormalBtnCenter.svg`;
+      }
+      else
+      {
+        chosen.src = `SVGs/Rectangle.svg`;
+      }
+        litOnes = litOnes.filter(function (element) {return element !== currInd})
     }
     else
     {
-      chosen.src = `SVGs/Rectangle${colorStrg}.svg`;
-    }
+      litOnes.push(currInd);
+      let id = `panelBtnId${currInd}`;
+      let chosen = document.getElementById(`${id}`);
+      let colorStrg = "";
+      let color = getRandom(0,1)
+      switch (color) {
+        case 0:
+          colorStrg = "Red";
+          break;
+      
+        default:
+          colorStrg = "Green";
+          break;
+      }
+      if (chosen.classList.contains("panelCenterBtn"))
+      {
+        chosen.src = `SVGs/NormalBtnCenter${colorStrg}.svg`;
+      }
+      else
+      {
+        chosen.src = `SVGs/Rectangle${colorStrg}.svg`;
+      }
+      }
   }
+
 }
 
 function PullLever()
@@ -161,9 +172,9 @@ function PullLever()
 function Fire()
 {
   document.getElementsByClassName("laser")[0].classList.add("fireOrder");
-  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.add("explode"); document.getElementsByClassName("planetIMG")[0].classList.add("explodePlanet");}, 1600);
-  setTimeout(function () {document.getElementsByClassName("laser")[0].classList.remove("fireOrder");}, 1800)
-  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.remove("explode");}, 2000);
+  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.add("explode"); document.getElementsByClassName("planetIMG")[0].classList.add("explodePlanet");}, 1420);
+  setTimeout(function () {document.getElementsByClassName("laser")[0].classList.remove("fireOrder");}, 1500)
+  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.remove("explode");}, 1950);
 }
 
 function GetNewPlanet()
