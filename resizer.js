@@ -161,9 +161,9 @@ function PullLever()
 function Fire()
 {
   document.getElementsByClassName("laser")[0].classList.add("fireOrder");
-  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.add("explode"); document.getElementsByClassName("planetIMG")[0].classList.add("explodePlanet");}, 1500);
-  setTimeout(function () {document.getElementsByClassName("laser")[0].classList.remove("fireOrder");}, 2000)
-  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.remove("explode");}, 1950);
+  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.add("explode"); document.getElementsByClassName("planetIMG")[0].classList.add("explodePlanet");}, 1600);
+  setTimeout(function () {document.getElementsByClassName("laser")[0].classList.remove("fireOrder");}, 1800)
+  setTimeout(function () {document.getElementsByClassName("explosionIMG")[0].classList.remove("explode");}, 2000);
 }
 
 function GetNewPlanet()
@@ -178,4 +178,4 @@ document.getElementsByClassName("lever")[0].addEventListener("click", PullLever)
 genBtns();
 GetNewPlanet();
 LitRandom();
-setInterval(LitRandom, 1500);
+setInterval(LitRandom, 1300);
